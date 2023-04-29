@@ -52,7 +52,7 @@
                             <td>{{ $student['contact'] }}</td>
                             <td>{{ $student['gender'] }}</td>
                             <td>{{ $student['city'] }}</td>
-                            <td> <button class="btn btn-primary">Update</button> &nbsp;
+                            <td>    <a href="{{ url('student/edit') }}/{{$student['studentID'] }}"> <button class="btn btn-primary">Update</button> &nbsp;
                                 <a href="{{ url('student/delete') }}/{{$student['studentID'] }}"> <button class="btn btn-danger">Delete</button>
                                 </a>
                             </td>

@@ -9,8 +9,12 @@ class FormController extends Controller
 {
     function getForm()
     {
+        $title = "Register Yourself";
+        $url = "/form";
 
-        return view('form');
+        $data = compact("title", "url");
+
+        return view('form')->with($data);
     }
 
 
@@ -69,10 +73,45 @@ class FormController extends Controller
     {
         echo "<pre>";
 
-        $student =Students::find($studentID);
-//   print_r($student->find($id)) ;
-        print_r($student);
+        $student = Students::find($studentID);
+        $student->delete();
+        return redirect("/show");
+        //   print_r($student->find($id)) ;
+        // print_r($student);
 
-        echo "delete";
+        // echo "delete";
+    }
+
+
+    function edit($studentID)
+    {
+        $student = Students::find($studentID);
+        // print_r($student);
+        $url = "/update";
+
+        $title = "Edit Information";
+
+        $data = compact("title", "student", "url");
+
+        // echo $id;
+        return view("form")->with($data);
+    }
+
+
+    function update(Request $req)
+    {
+        // $id = 
+        $student = Students::find($req['studentID']);
+        $student->studentName = $req['sname'];
+        // $student->gender = $req['sgender'];
+        $student->contact = $req['scontact'];
+        $student->city = $req['scity'];
+        $student->password = sha1($req['password']);
+
+        $student->save();
+        return redirect("/show");
+        // print_r($student);
+
+
     }
 }

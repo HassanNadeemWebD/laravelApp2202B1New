@@ -38,3 +38,5 @@ print_r($students->toArray());
 
 Route::get('/show', [FormController::class , 'show']);
 Route::get('/student/delete/{studentID}', [FormController::class , 'delete']);
+Route::get('/student/edit/{studentID}', [FormController::class , 'edit']);
+Route::post('/update', [FormController::class , 'update']);
