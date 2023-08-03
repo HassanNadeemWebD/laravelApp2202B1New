@@ -114,7 +114,7 @@ if(isset($student->city)){
             </div>
             <div class="mb-3 mt-3">
                 <label for="email">Password</label>
-                <input type="password" class="form-control" id="email" placeholder="Enter email" name="password"
+                <input type="password" class="form-control" id="email" name="password"
                     value=" @php
 if(isset($student->password)){
                 echo $student->password;

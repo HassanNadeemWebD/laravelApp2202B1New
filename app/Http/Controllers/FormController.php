@@ -36,7 +36,7 @@ class FormController extends Controller
 
         $students = new Students;
         $students->studentName = $req['sname'];
-        $students->gender = $req['sgender'];
+        $students->gender = 'male';
         $students->contact = $req['scontact'];
         $students->city = $req['scity'];
         $students->password = sha1($req['password']);
